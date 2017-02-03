@@ -1,25 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>API Lecture</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="/scripts/client.js"></script>
-  </head>
-  <body ng-app="pokeApp">
-    <main ng-controller="pokemonController as pokemon">
-
-      <h1>pokemon</h1>
-      <ul>
-        <li ng-repeat="individualPokemon in pokemon.pokemonList">
-            <button ng-click="pokemon.iChooseYou(individualPokemon)">{{individualPokemon.name}}</button>
-            <img ng-show="individualPokemon.imageURL" ng-src="{{individualPokemon.imageUrl}}" alt="a pic of {{individualPokemon.name}}"/>
-
-        </li>
-      </ul>
-    </main>
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,14 +5,15 @@
     <title>API Lecture</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/scripts/client.js"></script>
+    <script src="/scripts/giphy-service.js" charset="utf-8"></script>
   </head>
   <body ng-app="giphyApp">
-    <main ng-controller="giphyController as giphy">
-      <button ng-click="giphy.randomGifFunction()">Get a random Gif</button>
-      <img ng-src="{{giphy.randomGif}}" />
-      <input ng-model="giphy.giphySearch" />
-      <submit ng-click="giphy.searchGifFunction()">Search a Jif</submit>
-      <img ng-repeat="indgifs in giphy.list" ng-src="{{indgifs.images.downsized.url}}" />
+    <main ng-controller="giphyController as gc">
+      <button ng-click="gc.randomFunction()">Get a random Gif</button>
+      <img ng-src="{{ gc.randomGif }}" />
+      <input ng-model="gc.giphySearch" />
+      <button ng-click="gc.searchFunction()">Search a Jif</button>
+      <img ng-repeat="jifs in gc.list" ng-src="{{ jifs.images.downsized.url }}" />
     </main>
   </body>
 </html>
